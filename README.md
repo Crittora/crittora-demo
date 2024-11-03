@@ -24,7 +24,7 @@ This project demonstrates the core functionalities of the Crittora service, incl
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/crittora-demo.git
+git clone https://git@github.com:Crittora/crittora-demo.git
 cd crittora-demo
 ```
 
@@ -61,7 +61,14 @@ npm test
 ```
 crittora-demo/
 ├── node_modules/
+├── public/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── app.js
+│   └── index.html
 ├── test.js
+├── server.js
 ├── .env
 ├── .gitignore
 ├── package.json
@@ -150,3 +157,25 @@ For project-specific issues:
 
 - Crittora team for providing the encryption service
 - AWS Cognito for authentication services
+
+## API Endpoints
+
+### Authentication
+
+- POST `/api/authenticate`
+  - Authenticates user with Crittora service
+  - Returns JWT token
+
+### Encryption
+
+- POST `/api/encrypt`
+  - Encrypts provided data
+  - Requires authentication token
+  - Body: `{ token: string, data: string }`
+
+### Decryption
+
+- POST `/api/decrypt`
+  - Decrypts provided data
+  - Requires authentication token
+  - Body: `{ token: string, encryptedData: string }`
